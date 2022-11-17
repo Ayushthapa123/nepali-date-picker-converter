@@ -1,23 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 
+import DatepickerWithPackage from './components/DatepickerWithPackage';
+import Datepicker from './components/Datepicker';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     {/* <DatepickerWithPackage/> */}
+
+     <div>
+      <h2>Datepicker:</h2>
+<Datepicker/>
+     </div>
     </div>
   );
 }
