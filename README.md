@@ -11,16 +11,14 @@ import {NepaliDate,EnglishDate,NepaliDatePicker} from ...
 
 ## Your Component
 
-import React from 'react'
 
+
+import React from 'react'
 import { NepaliDate,EnglishDate,NepaliDatePicker } from ...
 
-
 export default function Mycomponent() {
-
     let nepalidate = NepaliDate();
     let englishdate = EnglishDate();
-
     console.log(nepalidate,englishdate);
 
     return (

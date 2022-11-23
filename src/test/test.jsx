@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { NepaliDate } from '../dates';
-import { EnglishDate } from '../dates';
+import { OurNepaliDatePicker, NepaliDate, EnglishDate } from '../components/dates';
 
 export default function Test() {
 
@@ -10,6 +9,8 @@ export default function Test() {
 
     console.log("nepeng", nepalidate, englishdate);
     return (
-        <div>test</div>
+        <div>
+            <OurNepaliDatePicker />
+        </div>
     )
 }
