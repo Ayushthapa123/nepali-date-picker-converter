@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useReducer } from 'react'
 
 import { weeks, months, minyear, maxyear, endofmonths, leapyearsindex, allyears } from './datepicker/data';
 
 import { findLeapNepaliYears } from './datepicker/findLeapNepaliYears';
-import convertToAd from './datepicker/convertToAd';
+import ConvertToAd from './datepicker/convertToAd';
 
 import "./css/datepicker.css"
 
@@ -11,11 +11,18 @@ import "./css/datepicker.css"
 import { MdArrowBackIosNew } from 'react-icons/md'
 import { MdArrowForwardIos } from 'react-icons/md'
 
+import { useDate } from './contexts/dateContext';
 
-export default function Datepicker() {
+
+
+export function Datepicker() {
+
+  const { nepaliDate, setNepaliDate } = useDate();
+
+
 
   const [date, setDate] = useState('');
-  const [currentyear, setCurrentyear] = useState(allyears[55]);
+  const [currentyear, setCurrentyear] = useState(allyears[0]);
   const [currentmonth, setCurrentmonth] = useState(months[0]);
   const [endofmonth, setEndofmonth] = useState(endofmonths[0][0]);
   const [yearindex, setYearindex] = useState(0);
@@ -178,16 +185,18 @@ export default function Datepicker() {
 
   // generateYears();
   setAlldays();
-  let englishdate = convertToAd(yearindex, monthindex, day);
+  let englishdate = ConvertToAd(yearindex, monthindex, day);
 
   useEffect(() => {
+
 
     setMonthdays();
     setDate(`${currentyear}-${monthindex + 1}-${day}`)
     // weekStartDay();
     findWeekStartDay();
+    setNepaliDate(`${currentyear}-${monthindex + 1}-${day}`)
 
-  }, [yearindex, monthindex, day, start_week_padding])
+  }, [yearindex, monthindex, day, start_week_padding, nepaliDate])
 
 
 
@@ -258,11 +267,6 @@ export default function Datepicker() {
 
       </div>}
 
-      {/* <div className='values'>
-      <p>Year: {year}</p>
-      <p>Month: {month}</p>
-      <p>Day: {day}</p>
-    </div> */}
 
       <div className='values'>
         <p>Year: {englishdate.year}</p>
@@ -272,3 +276,6 @@ export default function Datepicker() {
     </div>
   )
 }
+
+
+

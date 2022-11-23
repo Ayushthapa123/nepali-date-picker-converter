@@ -1,6 +1,17 @@
 import { endofmonths, englishmonths, englishleapmonths, englishleapyears, englishnonleapyears } from "./data";
 
-export default function convertToAd(yearindex, monthindex, day) {
+
+import { useDate } from "../contexts/dateContext";
+
+
+
+
+
+export default function ConvertToAd(yearindex, monthindex, day) {
+
+    const { englishDate, setEnglishDate } = useDate();
+
+
     let totalyeardays = 0;
     for (let i = 0; i < yearindex; i++) {
         for (let j = 0; j < 12; j++) {
@@ -12,7 +23,7 @@ export default function convertToAd(yearindex, monthindex, day) {
         totalmonthdays = totalmonthdays + endofmonths[yearindex][j];
     }
     let totaldays = totalyeardays + totalmonthdays + day;
-    console.log("total days", totaldays);
+
 
 
     //english reference date
@@ -24,7 +35,6 @@ export default function convertToAd(yearindex, monthindex, day) {
     for (let i = 1940; i <= 2056; i++) {
 
         if (englishnonleapyears.includes(i)) {
-
 
             if (daycounts > 365) {
                 year = year + 1;
@@ -153,6 +163,8 @@ export default function convertToAd(yearindex, monthindex, day) {
     // console.log("month", month);
     // console.log("monthday", monthday)
 
-    return ({ year, month, monthday });
+    setEnglishDate(`${year}-${month + 1}-${monthday}`)
+
+    return ({ year, month: month + 1, monthday });
 
 }
