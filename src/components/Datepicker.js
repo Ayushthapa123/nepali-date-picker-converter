@@ -267,7 +267,7 @@ export function Datepicker() {
 
       </div>}
 
-
+      <h3>English Date: {englishDate}</h3>
 
     </div>
   )

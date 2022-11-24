@@ -7,7 +7,9 @@
 ## How to use?
 You can use them simply by importing functions and components.
 ```
-import {NepaliDate,EnglishDate,DatePicker} from "nepali-date-picker-converter-react"
+import { NepaliDate, EnglishDate } from 'nepali-date-picker-converter-react';
+import { Datepicker } from 'nepali-date-picker-converter-react/dist/Datepicker';
+
 ```
 ## Must Wrap dateProvider on the parent component eg: app.js
 ```
@@ -34,7 +36,9 @@ export default MyComp;
 
 ```
 import React from 'react'
-import { NepaliDate,EnglishDate,DatePicker } from ...
+import { NepaliDate, EnglishDate } from 'nepali-date-picker-converter-react';
+import { Datepicker } from 'nepali-date-picker-converter-react/dist/Datepicker';
+
 
 export default function Mycomponent() {
     let nepalidate = NepaliDate();
@@ -43,7 +47,7 @@ export default function Mycomponent() {
 
     return (
         <div>
-        <NepaliDatePicker/>
+        <Datepicker/>
         </div>
     )
 }
