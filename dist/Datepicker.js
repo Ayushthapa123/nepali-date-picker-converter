@@ -22,6 +22,9 @@ function Datepicker() {
     nepaliDate,
     setNepaliDate
   } = (0, _dateContext.useDate)();
+  const {
+    englishDate
+  } = (0, _dateContext.useDate)();
   const [date, setDate] = (0, _react.useState)('');
   const [currentyear, setCurrentyear] = (0, _react.useState)(_data.allyears[0]);
   const [currentmonth, setCurrentmonth] = (0, _react.useState)(_data.months[0]);
@@ -33,10 +36,6 @@ function Datepicker() {
   const [start_week_padding, setStartWeekPadding] = (0, _react.useState)('');
   const [start_week_padding_array, setStartWeekPaddingarray] = (0, _react.useState)([]);
   let alldays = [];
-
-  // let start_week_padding;
-  // let start_week_padding_array=[]
-
   function changeColor(e) {
     let buttons = document.getElementsByClassName("daybuttons");
     for (let x = 0; x < buttons.length; x++) {
@@ -58,9 +57,7 @@ function Datepicker() {
       d.push(i);
     }
     alldays = d;
-    // setDays(d); 
   }
-
   function setMonthdays() {
     setEndofmonth(_data.endofmonths[yearindex][monthindex]);
   }
@@ -135,9 +132,6 @@ function Datepicker() {
     switch (value) {
       case "increase":
         let currentyearindex2 = _data.allyears.indexOf(Number(currentyear));
-        console.log(_data.allyears);
-        console.log("currentyear2", currentyear);
-        console.log("cindex2", currentyearindex2);
         if (currentyearindex2 === 98) currentyearindex2 = -1;
         setCurrentyear(_data.allyears[currentyearindex2 + 1]);
         setYearindex(currentyearindex2 + 1);
@@ -155,14 +149,15 @@ function Datepicker() {
 
   // generateYears();
   setAlldays();
-  let englishdate = (0, _convertToAd.default)(yearindex, monthindex, day);
+  // let englishdate = ConvertToAd(yearindex, monthindex, day);
+  (0, _convertToAd.default)(yearindex, monthindex, day);
   (0, _react.useEffect)(() => {
     setMonthdays();
     setDate("".concat(currentyear, "-").concat(monthindex + 1, "-").concat(day));
     // weekStartDay();
     findWeekStartDay();
-    setNepaliDate("".concat(currentyear, "-").concat(monthindex + 1, "-").concat(day));
-  }, [yearindex, monthindex, day, start_week_padding, nepaliDate]);
+    setTimeout(() => setNepaliDate("".concat(currentyear, "-").concat(monthindex + 1, "-").concat(day)), 0);
+  }, [yearindex, monthindex, day, start_week_padding]);
 
   // findLeapNepaliYears();//finds all the years with 366 days
 
@@ -230,7 +225,5 @@ function Datepicker() {
       setShowcalender(false);
     },
     className: "daybuttons"
-  }, day))))), /*#__PURE__*/_react.default.createElement("div", {
-    className: "values"
-  }, /*#__PURE__*/_react.default.createElement("p", null, "Year: ", englishdate.year), /*#__PURE__*/_react.default.createElement("p", null, "Month: ", englishdate.month + 1), /*#__PURE__*/_react.default.createElement("p", null, "Day: ", englishdate.monthday)));
+  }, day))))));
 }

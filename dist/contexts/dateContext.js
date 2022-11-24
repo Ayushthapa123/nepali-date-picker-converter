@@ -17,12 +17,9 @@ function DateProvider(_ref) {
   let {
     children
   } = _ref;
-  const [currentDate, setCurrentDate] = (0, _react.useState)("2000-1-1");
-  const [nepaliDate, setNepaliDate] = (0, _react.useState)("2000 - 1 - 1");
-  const [englishDate, setEnglishDate] = (0, _react.useState)("1943 - 3 - 14");
+  const [nepaliDate, setNepaliDate] = (0, _react.useState)("2000-1-1");
+  const [englishDate, setEnglishDate] = (0, _react.useState)("1943-4-14");
   const value = {
-    currentDate,
-    setCurrentDate,
     nepaliDate,
     setNepaliDate,
     englishDate,

@@ -45,7 +45,6 @@ function ConvertToAd(yearindex, monthindex, day) {
               month = 0;
               year = year + 1;
               if (_data.englishleapyears.includes(year)) {
-                console.log("hii from alternate loop 1");
                 monthday = monthday + daycounts;
 
                 //loop here
@@ -103,7 +102,6 @@ function ConvertToAd(yearindex, monthindex, day) {
               year = year + 1;
               //needs alternate loop
               if (_data.englishnonleapyears.includes(year)) {
-                console.log("hii from alternate loop 2");
                 monthday = monthday + daycounts;
 
                 //loop here

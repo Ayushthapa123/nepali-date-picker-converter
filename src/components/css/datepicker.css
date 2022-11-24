@@ -1,19 +1,27 @@
+.date-picker-container {
+    position: relative;
+    width:270px;
+    height:auto;
+}
+
 
 .date-picker-container input {
-    width:300px;
+    width:270px;
     height:35px;
     border:2px solid rgb(158, 147, 147);
     border-radius: 5px;
     font-size: 18px;
+    position: relative;
     /* margin-bottom:5px; */
 }
 
 .date-picker {
-    width:280px;
+    width:265px;
     height:auto;
     padding:5px;
     background-color: rgb(255, 255, 255);
     border:2px solid rgb(226, 214, 214);
+    position: absolute;
 }
 
 .month-year {
